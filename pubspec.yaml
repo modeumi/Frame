@@ -62,12 +62,13 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
    - assets/community/
-   - assets/images/
+   - assets/main/
    - assets/mypage/
    - assets/Onboarding/
    - assets/research/
    - assets/reservation/
    - assets/search/
+   - assets/fonts/
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
@@ -83,7 +84,6 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-
     - family: Pretendard
       fonts:
         - asset: assets/fonts/PretendardVariable.ttf

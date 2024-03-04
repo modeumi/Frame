@@ -22,27 +22,43 @@ class _AppbarBuildState extends State<AppbarBuild> {
                   width: 80,
                   height: 20,
                   decoration: BoxDecoration(
-                      border: Border.all(width: 1, color: Color(0xff000000))),
+                      image: DecorationImage(
+                          image: AssetImage(
+                            'assets/main/Frame 1437257016.png',
+                          ),
+                          fit: BoxFit.cover)),
                 ),
                 Spacer(),
-                Icon(
-                  Icons.search,
-                  size: 24,
+                Container(
+                  width: 24,
+                  height: 24,
+                  child: Image.asset(
+                    'assets/main/Search-2.png',
+                    fit: BoxFit.cover,
+                  ),
                 ),
                 SizedBox(
                   width: 16,
                 ),
-                Icon(
-                  Icons.notifications_none,
-                  size: 24,
+                Container(
+                  width: 24,
+                  height: 24,
+                  child: Image.asset(
+                    'assets/main/Notification.png',
+                    fit: BoxFit.cover,
+                  ),
                 ),
                 SizedBox(
                   width: 16,
                 ),
-                Icon(
-                  Icons.chat_outlined,
-                  size: 24,
-                )
+                Container(
+                  width: 24,
+                  height: 24,
+                  child: Image.asset(
+                    'assets/main/Comments.png',
+                    fit: BoxFit.cover,
+                  ),
+                ),
               ],
             )
           : Stack(
@@ -62,17 +78,25 @@ class _AppbarBuildState extends State<AppbarBuild> {
                   right: 0,
                   child: Row(
                     children: [
-                      Icon(
-                        Icons.notifications_none,
-                        size: 24,
+                      Container(
+                        width: 24,
+                        height: 24,
+                        child: Image.asset(
+                          'assets/main/Notification.png',
+                          fit: BoxFit.cover,
+                        ),
                       ),
                       SizedBox(
                         width: 16,
                       ),
-                      Icon(
-                        Icons.chat_outlined,
-                        size: 24,
-                      )
+                      Container(
+                        width: 24,
+                        height: 24,
+                        child: Image.asset(
+                          'assets/main/Comments.png',
+                          fit: BoxFit.cover,
+                        ),
+                      ),
                     ],
                   ),
                 ),
