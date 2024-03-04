@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:frame/screen/picture_search.dart';
+import 'package:frame/widget/search_result/search_text.dart';
 
 class SearchWidget extends StatefulWidget implements PreferredSizeWidget {
   const SearchWidget({super.key});
@@ -26,21 +28,29 @@ class _SearchWidgetState extends State<SearchWidget> {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Icon(
-            Icons.camera_alt_outlined,
-            size: 24,
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => Picture_Search(),
+                ),
+              );
+            },
+            child: Container(
+              width: 24,
+              height: 24,
+              child: Image.asset(
+                'assets/research/Unsplash.png',
+                fit: BoxFit.cover,
+              ),
+            ),
           ),
           Container(
             margin: EdgeInsets.symmetric(horizontal: 12),
             height: 12,
             decoration: BoxDecoration(
-              border: Border(
-                right: BorderSide(
-                  width: 1,
-                  color: Color(0xFF767676),
-                ),
-              ),
-            ),
+                border: Border.all(width: 1, color: Color(0xFF767676))),
           ),
           IntrinsicWidth(
             child: TextField(
@@ -56,9 +66,22 @@ class _SearchWidgetState extends State<SearchWidget> {
             ),
           ),
           Spacer(),
-          Icon(
-            Icons.search,
-            size: 24,
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Search_text(),
+                  ));
+            },
+            child: Container(
+              width: 24,
+              height: 24,
+              child: Image.asset(
+                'assets/research/Search.png',
+                fit: BoxFit.cover,
+              ),
+            ),
           ),
         ],
       ),
