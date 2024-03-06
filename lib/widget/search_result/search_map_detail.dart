@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:frame/widget/image_search_tabbar.dart';
+import 'package:frame/widget/search_result/map_information.dart';
+import 'package:frame/widget/search_result/map_post.dart';
 
 class Search_Map_Detail extends StatefulWidget {
   const Search_Map_Detail({super.key});
@@ -13,7 +16,7 @@ class _Search_Map_DetailState extends State<Search_Map_Detail> {
     return Container(
       width: 375,
       height: 710,
-      padding: EdgeInsets.all(16),
+      padding: EdgeInsets.only(left: 16, right: 16, top: 16),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.only(
@@ -85,6 +88,70 @@ class _Search_Map_DetailState extends State<Search_Map_Detail> {
                     ],
                   )
                 ],
+              ),
+            ],
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Stack(
+            children: [
+              Container(
+                height: 594,
+                width: 375,
+                child: DefaultTabController(
+                  length: 2,
+                  child: Column(
+                    children: [
+                      Image_Search_Tabbar(),
+                      Expanded(
+                        child: TabBarView(
+                          children: [
+                            Map_Result_Post(),
+                            Map_Result_information(),
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+              Positioned(
+                bottom: 0,
+                left: 0,
+                child: Row(
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                      child: Container(
+                        width: 52,
+                        height: 52,
+                        decoration: BoxDecoration(
+                            shape: BoxShape.circle, color: Colors.black),
+                        child: Center(
+                          child: Image.asset('assets/search/Left.png'),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 18,
+                    ),
+                    GestureDetector(
+                      child: Container(
+                        width: 263,
+                        height: 52,
+                        decoration: BoxDecoration(
+                            color: Colors.black,
+                            borderRadius: BorderRadius.circular(30)),
+                        child: Center(
+                          child: Image.asset('assets/search/My Location.png'),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
               ),
             ],
           )

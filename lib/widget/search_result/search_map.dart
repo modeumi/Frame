@@ -13,7 +13,7 @@ class _Search_MapState extends State<Search_Map> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        margin: EdgeInsets.only(top: 44),
+        padding: EdgeInsets.only(top: 44),
         width: 375,
         height: 812,
         child: Stack(

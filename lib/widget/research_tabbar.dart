@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:frame/widget/image_search_indicator.dart';
+import 'package:frame/widget/indicator.dart';
 
-class Image_Search_Tabbar extends StatefulWidget
+class Research_TabbarBuild extends StatefulWidget
     implements PreferredSizeWidget {
-  const Image_Search_Tabbar({super.key});
+  const Research_TabbarBuild({super.key});
 
   @override
-  State<Image_Search_Tabbar> createState() => _Image_Search_TabbarState();
+  State<Research_TabbarBuild> createState() => _Research_TabbarBuildState();
 
   @override
   Size get preferredSize => Size.fromHeight(kToolbarHeight);
 }
 
-class _Image_Search_TabbarState extends State<Image_Search_Tabbar> {
-  List<String> tab_list = ['게시글', '전시 정보'];
+class _Research_TabbarBuildState extends State<Research_TabbarBuild> {
+  List<String> tab_list = ['추천', '팔로잉', '관심'];
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +32,7 @@ class _Image_Search_TabbarState extends State<Image_Search_Tabbar> {
         fontFamily: 'Pretendard',
         fontWeight: FontWeight.w700,
       ),
-      indicator: Image_CustomTabIndicator(),
+      indicator: CustomTabIndicator(),
       labelColor: Color(0xFF000000), // 선택된 탭의 텍스트 색상
       unselectedLabelColor: Color(0xFFB3B3B3), // 선택되지 않은 탭의 텍스트 색상
       dividerColor: Color(0xffFFFFFF),
