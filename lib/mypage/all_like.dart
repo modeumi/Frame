@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:frame/mypage/like_perform.dart';
 import 'package:frame/mypage/mypage_appbar.dart';
 import 'package:frame/widget/community/community_performance.dart';
 import 'package:frame/widget/community_tabbar.dart';
@@ -91,7 +92,7 @@ class _All_LikeState extends State<All_Like> {
                             ],
                           ),
                         ),
-                        Community_Perfomance(),
+                        Like_Perfomance(),
                         SizedBox(
                           height: 5,
                         )
