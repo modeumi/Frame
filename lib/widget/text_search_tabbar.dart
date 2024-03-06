@@ -33,6 +33,7 @@ class _Text_Search_TabbarState extends State<Text_Search_Tabbar> {
       indicator: Text_CustomTabIndicator(),
       labelColor: Color(0xFF000000), // 선택된 탭의 텍스트 색상
       unselectedLabelColor: Color(0xFFB3B3B3), // 선택되지 않은 탭의 텍스트 색상
+      dividerColor: Color(0xffFFFFFF),
     );
   }
 }
