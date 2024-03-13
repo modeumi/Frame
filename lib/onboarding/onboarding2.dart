@@ -193,7 +193,7 @@ class _OnBoardingPageState extends State<OnBoarding2> {
             style: ElevatedButton.styleFrom(
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(50)),
-                primary: Colors.black,
+                backgroundColor: Colors.black,
                 minimumSize: Size(343, 12)),
             child: Text(
               '다음',
