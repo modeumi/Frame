@@ -209,36 +209,52 @@ class _OnBoarding1State extends State<OnBoarding1> {
           ],
         ),
       ),
-      bottomNavigationBar: BottomAppBar(
-        elevation: 0,
-        color: Colors.white,
-        child: ElevatedButton(
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => OnBoarding2()),
-            );
-          },
-          style: ElevatedButton.styleFrom(
+      bottomNavigationBar: Stack(children: [
+        Container(
+          height: 36,
+          decoration: ShapeDecoration(
+            color: Colors.white,
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(50),
+              borderRadius: BorderRadius.circular(20),
             ),
-            backgroundColor: Colors.black,
-            minimumSize: Size(343, 12),
-          ),
-          child: Text(
-            '다음',
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 16,
-              fontFamily: 'Pretendard',
-              fontWeight: FontWeight.w600,
-              height: 0,
-            ),
+            shadows: [
+              BoxShadow(
+                color: Color(0x19000000),
+                blurRadius: 1,
+                offset: Offset(0, -2),
+                spreadRadius: 0,
+              )
+            ],
           ),
         ),
-      ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: BottomAppBar(
+            elevation: 0,
+            color: Colors.white,
+            child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => OnBoarding2()));
+                },
+                style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(50)),
+                    backgroundColor: Colors.black,
+                    minimumSize: Size(343, 12)),
+                child: Text(
+                  '다음',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontFamily: 'Pretendard',
+                    fontWeight: FontWeight.w600,
+                  ),
+                )),
+          ),
+        ),
+      ]),
     );
   }
 

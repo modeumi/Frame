@@ -24,27 +24,6 @@ class _ReservationPageState extends State<ReservationPage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        title: Text('예약',
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 20,
-              fontFamily: 'Pretendard',
-              fontWeight: FontWeight.w600,
-            )),
-        centerTitle: true,
-        actions: [
-          Image.asset('assets/reservation/Notification.png'),
-          SizedBox(
-            width: 16,
-          ),
-          Image.asset('assets/reservation/Comments.png'),
-          SizedBox(
-            width: 16,
-          ),
-        ],
-      ),
       body: Container(
         color: Colors.white,
         child: Column(

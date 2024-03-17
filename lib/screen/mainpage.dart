@@ -5,14 +5,14 @@ import 'package:frame/widget/floatingbutton.dart';
 import 'package:frame/widget/main/main_following.dart';
 import 'package:frame/widget/main/main_popualr.dart';
 
-class MyPage extends StatefulWidget {
-  const MyPage({super.key});
+class MainPage extends StatefulWidget {
+  const MainPage({super.key});
 
   @override
-  State<MyPage> createState() => __MyPageState();
+  State<MainPage> createState() => __MainPageState();
 }
 
-class __MyPageState extends State<MyPage> with TickerProviderStateMixin {
+class __MainPageState extends State<MainPage> with TickerProviderStateMixin {
   late TabController _tabController;
 
   @override
@@ -52,40 +52,44 @@ class __MyPageState extends State<MyPage> with TickerProviderStateMixin {
       ),
       body: Container(
         color: Colors.white,
-        child: Column(
+        child: Stack(
           children: [
-            Container(
-              width: 350,
-              height: 40,
-              child: TabBar(
-                controller: _tabController,
-                indicatorColor: Colors.black,
-                indicatorSize: TabBarIndicatorSize.tab,
-                labelStyle: TextStyle(
-                  color: Colors.black,
-                  fontSize: 14,
-                  fontFamily: 'Pretendard',
-                  fontWeight: FontWeight.w700,
-                ),
-                tabs: [
-                  Tab(
-                    text: '인기',
-                  ),
-                  Tab(
-                    text: '팔로잉',
-                  ),
-                ],
-              ),
-            ),
-            Expanded(
-                child: TabBarView(
-              controller: _tabController,
+            Column(
               children: [
-                Popularity(),
-                Following(),
+                Container(
+                  width: 350,
+                  height: 40,
+                  child: TabBar(
+                    controller: _tabController,
+                    indicatorColor: Colors.black,
+                    indicatorSize: TabBarIndicatorSize.tab,
+                    labelStyle: TextStyle(
+                      color: Colors.black,
+                      fontSize: 14,
+                      fontFamily: 'Pretendard',
+                      fontWeight: FontWeight.w700,
+                    ),
+                    tabs: [
+                      Tab(
+                        text: '인기',
+                      ),
+                      Tab(
+                        text: '팔로잉',
+                      ),
+                    ],
+                  ),
+                ),
+                Expanded(
+                    child: TabBarView(
+                  controller: _tabController,
+                  children: [
+                    Popularity(),
+                    Following(),
+                  ],
+                )),
               ],
-            )),
-            Padding(padding: const EdgeInsets.all(8.0), child: FloatingWidget())
+            ),
+            Positioned(bottom: 20, left: 21, child: FloatingWidget())
           ],
         ),
       ),

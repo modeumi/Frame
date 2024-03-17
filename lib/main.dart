@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:frame/onboarding/onboarding.dart';
-import 'package:frame/screen/reservation.dart';
-import 'package:frame/screen/revervation_date.dart';
-import 'package:frame/reservation/ticket.dart';
-import 'package:frame/screen/ticket_reservation.dart';
+import 'package:frame/screen/mainpage.dart';
+import 'package:frame/screen/research_post.dart';
 
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:frame/provider/floating_controller.dart';
@@ -18,7 +16,7 @@ void main() async {
         ChangeNotifierProvider(create: (_) => Floating_Controller()),
       ],
       child: MaterialApp(
-        home: RevervationDate(),
+        home: OnBoardingPage(),
       ),
     ),
   );

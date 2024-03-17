@@ -8,6 +8,61 @@ class BeforeView extends StatefulWidget {
 }
 
 class _BeforeViewState extends State<BeforeView> {
+  OverlayEntry? ticketoverlay;
+
+  void Ticketoevrlay() {
+    ticketoverlay = OverlayEntry(
+      builder: (context) => Stack(children: [
+        GestureDetector(
+          onTap: () {
+            ticketoverlay!.remove();
+          },
+          child: Container(
+            color: Colors.black.withOpacity(0.3),
+          ),
+        ),
+        Positioned(
+          bottom: 10,
+          left: 25,
+          child: Container(
+            width: 330,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    ticketoverlay!.remove();
+                  },
+                  child: Container(
+                    width: 52,
+                    height: 52,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(50),
+                        color: Colors.black),
+                    child: Image.asset('assets/reservation/Left.png'),
+                  ),
+                ),
+                Container(
+                  width: 263,
+                  height: 52,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(50),
+                      color: Colors.black),
+                ),
+              ],
+            ),
+          ),
+        ),
+        Positioned(
+          bottom: 50,
+          left: 110,
+          child: Image.asset('assets/reservation/Frame 1437257199.png'),
+        )
+      ]),
+    );
+    Overlay.of(context).insert(ticketoverlay!);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -208,15 +263,25 @@ class _BeforeViewState extends State<BeforeView> {
                     ),
                   ),
                   Spacer(),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Container(
-                          alignment: Alignment.bottomRight,
-                          width: 40,
-                          height: 40,
-                          child: Image.asset('assets/reservation/Cheque.png')),
-                    ],
+                  GestureDetector(
+                    onTap: () {
+                      // Navigator.push(
+                      //     context,
+                      //     MaterialPageRoute(
+                      //         builder: (context) => TicketReservation()));
+                      Ticketoevrlay();
+                    },
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Container(
+                            alignment: Alignment.bottomRight,
+                            width: 40,
+                            height: 40,
+                            child:
+                                Image.asset('assets/reservation/Cheque.png')),
+                      ],
+                    ),
                   ),
                 ]),
           ),

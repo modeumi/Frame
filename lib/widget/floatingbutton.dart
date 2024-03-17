@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:frame/provider/floating_controller.dart';
+import 'package:frame/reservation/ticket.dart';
 import 'package:frame/screen/community.dart';
 import 'package:frame/screen/mypage.dart';
+import 'package:frame/screen/reservation.dart';
 import 'package:frame/screen/search.dart';
 import 'package:provider/provider.dart';
 
@@ -112,6 +114,14 @@ class _FloatingWidgetState extends State<FloatingWidget> {
                                         context,
                                         MaterialPageRoute(
                                           builder: (context) => Mypage(),
+                                        ));
+                                  }
+                                  if (text == 'Ticket') {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) =>
+                                              ReservationPage(),
                                         ));
                                   }
                                   Button_Active(text);
