@@ -24,6 +24,27 @@ class _ReservationPageState extends State<ReservationPage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+          scrolledUnderElevation: 0,
+          backgroundColor: Colors.white,
+          leading: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => (ReservationPage())));
+              },
+              child: Image.asset('assets/community/Back.png')),
+          title: Text(
+            '예약',
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 20,
+              fontFamily: 'Pretendard',
+              fontWeight: FontWeight.w600,
+              height: 0,
+            ),
+          )),
       body: Container(
         color: Colors.white,
         child: Column(
