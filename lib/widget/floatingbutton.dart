@@ -6,7 +6,8 @@ import 'package:frame/screen/search.dart';
 import 'package:provider/provider.dart';
 
 class FloatingWidget extends StatefulWidget {
-  const FloatingWidget({super.key});
+  final bool mainpage;
+  const FloatingWidget(this.mainpage, {super.key});
 
   @override
   State<FloatingWidget> createState() => _FloatingWidgetState();
@@ -65,75 +66,68 @@ class _FloatingWidgetState extends State<FloatingWidget> {
                     color: Color(0xff000000),
                   ),
                   child: Center(
-                      child: Image.asset(Provider.of<Floating_Controller>(
-                                  context,
-                                  listen: false)
-                              .page_state
-                          ? 'assets/main/Home.png'
-                          : 'assets/main/Plus Math.png')),
+                      child: Image.asset(widget.mainpage
+                          ? 'assets/main/Plus Math.png'
+                          : 'assets/main/Home.png')),
                 ),
               ),
               SizedBox(
                 width: 18,
               ),
-              Provider.of<Floating_Controller>(context, listen: false)
-                      .page_state
-                  ? Container(
-                      width: 263,
-                      height: 52,
-                      padding: EdgeInsets.all(4),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30),
-                        color: Color(0xff000000),
-                      ),
-                      child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            for (String text in sub_slot.keys)
-                              GestureDetector(
-                                onTap: () {
-                                  Navigator.pop(context);
-                                  if (text == 'Search') {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) => Search(),
-                                        ));
-                                  }
-                                  if (text == 'Chat') {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) => Community(),
-                                        ));
-                                  }
-                                  if (text == 'User') {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) => Mypage(),
-                                        ));
-                                  }
-                                  Button_Active(text);
-                                },
-                                child: Container(
-                                  width: 44,
-                                  height: 44,
-                                  decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      color: Color(sub_slot[text]!
-                                          ? 0xffffffff
-                                          : 0xff000000),
-                                      image: DecorationImage(
-                                        image: AssetImage(sub_slot[text]!
-                                            ? 'assets/main/${text}-1.png'
-                                            : 'assets/main/${text}.png'),
-                                      )),
-                                ),
-                              )
-                          ]),
-                    )
-                  : Container(),
+              Container(
+                width: 263,
+                height: 52,
+                padding: EdgeInsets.all(4),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(30),
+                  color: Color(0xff000000),
+                ),
+                child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      for (String text in sub_slot.keys)
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.pop(context);
+                            if (text == 'Search') {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => Search(),
+                                  ));
+                            }
+                            if (text == 'Chat') {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => Community(),
+                                  ));
+                            }
+                            if (text == 'User') {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => Mypage(),
+                                  ));
+                            }
+                            Button_Active(text);
+                          },
+                          child: Container(
+                            width: 44,
+                            height: 44,
+                            decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Color(
+                                    sub_slot[text]! ? 0xffffffff : 0xff000000),
+                                image: DecorationImage(
+                                  image: AssetImage(sub_slot[text]!
+                                      ? 'assets/main/${text}-1.png'
+                                      : 'assets/main/${text}.png'),
+                                )),
+                          ),
+                        )
+                    ]),
+              )
             ],
           ),
         );

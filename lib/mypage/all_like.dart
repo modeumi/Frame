@@ -29,7 +29,7 @@ class _All_LikeState extends State<All_Like> {
               title: MyPage_Appbar('좋아요'),
               bottom: Community_TabbarBuild(),
             ),
-            bottomSheet: FloatingWidget(),
+            bottomSheet: FloatingWidget(false),
             body: TabBarView(
               children: [
                 Padding(

@@ -13,7 +13,7 @@ class _Like_PerfomanceState extends State<Like_Perfomance> {
     'MSCHF: NOTHING ISSACRED',
     'Christopher Bauder : WINTERLIGHTS',
     '시간, 자연, 사랑',
-    'Christopher Bauder : WINTERLIGHTS'
+    'EXPLORING THE UNIVERSE'
   ];
   List<String> place_name = ['대림미술관', '서울숲 가족마당', '디뮤지엄', '서울숲 가족마당'];
   @override

@@ -62,7 +62,7 @@ class _Performance_DetailState extends State<Performance_Detail> {
               SizedBox(
                 height: 32,
               ),
-              FloatingWidget()
+              FloatingWidget(false)
             ],
           ),
         ),

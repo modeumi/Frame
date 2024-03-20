@@ -25,19 +25,25 @@ class _MypageState extends State<Mypage> {
             automaticallyImplyLeading: false,
             title: MyPage_Appbar('마이페이지'),
           ),
-          bottomSheet: FloatingWidget(),
-          body: SingleChildScrollView(
-            child: Column(
-              children: [
-                MyPage_Profile(),
-                MyPage_History(),
-                MyPage_Analysis(),
-                SizedBox(
-                  height: 55,
-                )
-              ],
+          body: Stack(children: [
+            SingleChildScrollView(
+              child: Column(
+                children: [
+                  MyPage_Profile(),
+                  MyPage_History(),
+                  MyPage_Analysis(),
+                  SizedBox(
+                    height: 70,
+                  )
+                ],
+              ),
             ),
-          )),
+            Positioned(
+              bottom: 10,
+              left: 21,
+              child: FloatingWidget(false),
+            )
+          ])),
     );
   }
 }
