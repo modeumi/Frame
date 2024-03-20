@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:frame/widget/floatingbutton.dart';
-import 'package:frame/widget/research/interest.dart';
 import 'package:frame/widget/research/mainfild.dart';
 import 'package:frame/widget/research/mainfild_perform.dart';
 import 'package:frame/widget/research/mainfild_post.dart';

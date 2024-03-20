@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:frame/reservation/before_view.dart';
 import 'package:frame/reservation/select_time.dart';
 import 'package:frame/reservation/view_completed.dart';
+import 'package:frame/widget/appbar.dart';
 import 'package:frame/widget/floatingbutton.dart';
 
 class ReservationPage extends StatefulWidget {
@@ -25,26 +26,9 @@ class _ReservationPageState extends State<ReservationPage>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          scrolledUnderElevation: 0,
-          backgroundColor: Colors.white,
-          leading: GestureDetector(
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => (ReservationPage())));
-              },
-              child: Image.asset('assets/community/Back.png')),
-          title: Text(
-            '예약',
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 20,
-              fontFamily: 'Pretendard',
-              fontWeight: FontWeight.w600,
-              height: 0,
-            ),
-          )),
+        automaticallyImplyLeading: false,
+        title: AppbarBuild('예약'),
+      ),
       body: Container(
         color: Colors.white,
         child: Column(

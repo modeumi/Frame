@@ -103,17 +103,27 @@ class _FloatingWidgetState extends State<FloatingWidget> {
                           }
                           if (text == 'Chat') {
                             Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => Community(),
-                                ));
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Community(),
+                              ),
+                            );
+                          }
+                          if (text == 'Ticket') {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ReservationPage(),
+                              ),
+                            );
                           }
                           if (text == 'User') {
                             Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => Mypage(),
-                                ));
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Mypage(),
+                              ),
+                            );
                           }
                           Button_Active(text);
                         },
@@ -131,7 +141,7 @@ class _FloatingWidgetState extends State<FloatingWidget> {
                             ),
                           ),
                         ),
-                      )
+                      ),
                   ],
                 ),
               ),

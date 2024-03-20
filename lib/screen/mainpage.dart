@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:frame/widget/appbar.dart';
 
 import 'package:frame/widget/floatingbutton.dart';
 import 'package:frame/widget/main/main_following.dart';
@@ -25,30 +26,32 @@ class __MainPageState extends State<MainPage> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: Colors.white,
         scrolledUnderElevation: 0,
-        actions: [
-          SvgPicture.asset(
-            'assets/mypage/Frame 1437257016.svg',
-            width: 20,
-            height: 24,
-          ),
-          SizedBox(
-            width: 160,
-          ),
-          Image.asset('assets/main/Search-2.png'),
-          SizedBox(
-            width: 16,
-          ),
-          Image.asset('assets/main/Notification.png'),
-          SizedBox(
-            width: 16,
-          ),
-          Image.asset('assets/main/Comments.png'),
-          SizedBox(
-            width: 16,
-          ),
-        ],
+        title: AppbarBuild('main'),
+        // actions: [
+        //   SvgPicture.asset(
+        //     'assets/mypage/Frame 1437257016.svg',
+        //     width: 20,
+        //     height: 24,
+        //   ),
+        //   SizedBox(
+        //     width: 160,
+        //   ),
+        //   Image.asset('assets/main/Search-2.png'),
+        //   SizedBox(
+        //     width: 16,
+        //   ),
+        //   Image.asset('assets/main/Notification.png'),
+        //   SizedBox(
+        //     width: 16,
+        //   ),
+        //   Image.asset('assets/main/Comments.png'),
+        //   SizedBox(
+        //     width: 16,
+        //   ),
+        // ],
       ),
       body: Container(
         color: Colors.white,
