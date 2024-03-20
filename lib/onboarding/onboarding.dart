@@ -9,10 +9,10 @@ class OnBoardingPage extends StatefulWidget {
   State<OnBoardingPage> createState() => _OnBoardingPageState();
 }
 
-enum Language { cpp, python, dart }
+enum Language { male, female }
 
 class _OnBoardingPageState extends State<OnBoardingPage> {
-  String _language = "";
+  String __selectedGenderGroup = "";
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,12 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
         scrolledUnderElevation: 0,
         backgroundColor: Colors.white,
         elevation: 0,
-        leading: Image.asset('assets/community/Back.png'),
+        leading: GestureDetector(
+            onTap: () {
+              Navigator.pop(context,
+                  MaterialPageRoute(builder: (context) => OnBoardingPage()));
+            },
+            child: Image.asset('assets/community/Back.png')),
         actions: [
           Container(
             width: 30,
@@ -142,10 +147,13 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
               ),
             ),
           ),
+          SizedBox(
+            width: 40,
+          ),
         ],
       ),
       body: Container(
-        width: 375,
+        width: 390,
         color: Colors.white,
         child: Column(children: [
           SizedBox(
@@ -177,132 +185,129 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
           SizedBox(
             height: 28,
           ),
-          Container(
-            padding: EdgeInsets.symmetric(horizontal: 16),
-            width: 375,
-            child: Row(
-              children: [
-                Container(
-                  width: 158,
-                  height: 221,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: Colors.white,
-                    border: Border.all(color: Color(0xFFEBEBEB)),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      RadioButton(
-                        description: "남성",
-                        value: "남성",
-                        groupValue: _language,
-                        fillColor: Colors.black,
-                        onChanged: (value) => setState(
-                          () => _language = value ?? '',
-                        ),
-                        textPosition: RadioButtonTextPosition.left,
-                        textStyle: TextStyle(
-                          color: Colors.black,
-                          fontSize: 16,
-                          fontFamily: 'Pretendard',
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                      Expanded(
-                          child: Container(
-                        width: 124,
-                        height: 227,
-                        child: Image.asset(
-                          'assets/Onboarding/Mask group-1.png',
-                          fit: BoxFit.cover,
-                        ),
-                      ))
-                    ],
-                  ),
-                ),
-                Column(
-                  children: [
-                    Container(
-                      width: 168,
-                      height: 221,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: Colors.white,
-                        border: Border.all(color: Color(0xFFEBEBEB)),
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Container(
-                            width: 100,
-                            child: RadioButton(
-                              description: "여성",
-                              value: "여성",
-                              groupValue: _language,
-                              fillColor: Colors.black,
-                              onChanged: (value) => setState(
-                                () => _language = value ?? '',
-                              ),
-                              textPosition: RadioButtonTextPosition.left,
-                              textStyle: TextStyle(
-                                color: Colors.black,
-                                fontSize: 16,
-                                fontFamily: 'Pretendard',
-                                fontWeight: FontWeight.w600,
-                              ),
-                            ),
-                          ),
-                          Expanded(
-                              child: Container(
-                            width: 152,
-                            height: 227,
-                            child: Image.asset(
-                              'assets/Onboarding/Mask group.png',
-                              fit: BoxFit.cover,
-                            ),
-                          ))
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-          SizedBox(
-            height: 40,
-          ),
-          Container(
-            height: 3,
-            width: 375,
-            color: Colors.black,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              _buildGenderGroupConatiner(
+                  genderGroup: "남성",
+                  imagePath: "assets/Onboarding/Mask group-1.png"),
+              _buildGenderGroupConatiner(
+                  genderGroup: "여성",
+                  imagePath: "assets/Onboarding/Mask group.png"),
+            ],
           )
         ]),
       ),
-      bottomNavigationBar: BottomAppBar(
-        elevation: 0,
-        color: Colors.white,
-        child: ElevatedButton(
-            onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => OnBoarding1()));
-            },
-            style: ElevatedButton.styleFrom(
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(50)),
-                primary: Colors.black,
-                minimumSize: Size(343, 12)),
-            child: Text(
-              '다음',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 16,
-                fontFamily: 'Pretendard',
-                fontWeight: FontWeight.w600,
+      bottomNavigationBar: Stack(children: [
+        Container(
+          height: 36,
+          decoration: ShapeDecoration(
+            color: Colors.white,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+            ),
+            shadows: [
+              BoxShadow(
+                color: Color(0x19000000),
+                blurRadius: 1,
+                offset: Offset(0, -2),
+                spreadRadius: 0,
+              )
+            ],
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: BottomAppBar(
+            elevation: 0,
+            color: Colors.white,
+            child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => OnBoarding1()));
+                },
+                style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(50)),
+                    backgroundColor: Colors.black,
+                    minimumSize: Size(343, 12)),
+                child: Text(
+                  '다음',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontFamily: 'Pretendard',
+                    fontWeight: FontWeight.w600,
+                  ),
+                )),
+          ),
+        ),
+      ]),
+    );
+  }
+
+  Widget _buildGenderGroupConatiner(
+      {required String genderGroup, required String imagePath}) {
+    bool isSelected = __selectedGenderGroup == genderGroup;
+    Color containerColor = isSelected ? Colors.black : Colors.white;
+    Color textColor = isSelected ? Colors.white : Colors.black;
+    return InkWell(
+      onTap: () {
+        setState(() {
+          __selectedGenderGroup = genderGroup;
+        });
+      },
+      child: Container(
+        width: 168,
+        height: 221,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+          color: containerColor,
+          border: Border.all(color: Color(0xFFEBEBEB)),
+        ),
+        child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 18),
+                child: Container(
+                  width: 148,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        genderGroup,
+                        style: TextStyle(
+                            color: textColor,
+                            fontSize: 16,
+                            fontFamily: 'Pretendard',
+                            fontWeight: FontWeight.w600),
+                      ),
+                      Radio(
+                        value: genderGroup,
+                        groupValue: __selectedGenderGroup,
+                        activeColor: textColor,
+                        onChanged: (value) {
+                          setState(() {
+                            __selectedGenderGroup = genderGroup;
+                          });
+                        },
+                      ),
+                    ],
+                  ),
+                ),
               ),
-            )),
+              Expanded(
+                  child: Container(
+                width: 124,
+                height: 227,
+                child: Image.asset(
+                  imagePath,
+                  fit: BoxFit.cover,
+                ),
+              ))
+            ]),
       ),
     );
   }

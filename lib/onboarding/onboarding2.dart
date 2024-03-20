@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:frame/onboarding/GridViewPage.dart';
 import 'package:frame/onboarding/onboarding1.dart';
+import 'package:frame/screen/mainpage.dart';
 
 class OnBoarding2 extends StatefulWidget {
   const OnBoarding2({super.key});
@@ -185,28 +186,52 @@ class _OnBoardingPageState extends State<OnBoarding2> {
           Expanded(child: GridViewPage())
         ]),
       ),
-      bottomNavigationBar: BottomAppBar(
-        elevation: 0,
-        color: Colors.white,
-        child: ElevatedButton(
-            onPressed: () {},
-            style: ElevatedButton.styleFrom(
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(50)),
-                primary: Colors.black,
-                minimumSize: Size(343, 12)),
-            child: Text(
-              '다음',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 16,
-                fontFamily: 'Pretendard',
-                fontWeight: FontWeight.w600,
-                height: 0,
-              ),
-            )),
-      ),
+      bottomNavigationBar: Stack(children: [
+        Container(
+          height: 36,
+          decoration: ShapeDecoration(
+            color: Colors.white,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+            ),
+            shadows: [
+              BoxShadow(
+                color: Color(0x19000000),
+                blurRadius: 1,
+                offset: Offset(0, -2),
+                spreadRadius: 0,
+              )
+            ],
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: BottomAppBar(
+            elevation: 0,
+            color: Colors.white,
+            child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => MainPage()));
+                },
+                style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(50)),
+                    backgroundColor: Colors.black,
+                    minimumSize: Size(343, 12)),
+                child: Text(
+                  '다음',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontFamily: 'Pretendard',
+                    fontWeight: FontWeight.w600,
+                  ),
+                )),
+          ),
+        ),
+      ]),
     );
   }
 }
