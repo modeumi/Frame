@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:frame/mypage/like_perform.dart';
 import 'package:frame/mypage/mypage_appbar.dart';
-import 'package:frame/widget/community/community_performance.dart';
 import 'package:frame/widget/community_tabbar.dart';
 import 'package:frame/widget/floatingbutton.dart';
 
