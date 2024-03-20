@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:frame/widget/floatingbutton.dart';
+import 'package:frame/widget/search_result/search_map.dart';
 import 'package:frame/widget/searchwidget.dart';
 
 class Search extends StatefulWidget {
@@ -314,21 +315,30 @@ class _SearchState extends State<Search> {
                       SizedBox(
                         height: 8,
                       ),
-                      Container(
-                        width: 343,
-                        height: 188,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          image: DecorationImage(
-                              image: AssetImage(
-                                  'assets/search/Group 1437256314.png'),
-                              fit: BoxFit.cover),
-                        ),
-                        child: Center(
-                          child: Image.asset(
-                            'assets/search/Group 1437256316.png',
-                            width: 58,
-                            height: 74,
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Search_Map(),
+                              ));
+                        },
+                        child: Container(
+                          width: 343,
+                          height: 188,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            image: DecorationImage(
+                                image: AssetImage(
+                                    'assets/search/Group 1437256314.png'),
+                                fit: BoxFit.cover),
+                          ),
+                          child: Center(
+                            child: Image.asset(
+                              'assets/search/Group 1437256316.png',
+                              width: 58,
+                              height: 74,
+                            ),
                           ),
                         ),
                       )
@@ -336,7 +346,7 @@ class _SearchState extends State<Search> {
                   ),
                 ),
               ),
-              Positioned(bottom: 10, left: 21, child: FloatingWidget()),
+              Positioned(bottom: 10, left: 21, child: FloatingWidget(false)),
             ]),
           )),
     );

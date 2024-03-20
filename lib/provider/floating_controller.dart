@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class Floating_Controller with ChangeNotifier {
   String page_name = '';
-  bool page_state = false;
+  bool page_state = true;
 
   void Set_Page(String name) {
     page_name = name;

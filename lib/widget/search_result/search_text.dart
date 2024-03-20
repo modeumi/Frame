@@ -267,32 +267,23 @@ class _Search_textState extends State<Search_text> {
                             ),
                           ),
                           Spacer(),
-                          GestureDetector(
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => Search_Map(),
-                                  ));
-                            },
-                            child: Row(
-                              children: [
-                                Text(
-                                  '더보기',
-                                  style: TextStyle(
-                                    color: Color(0xFF767676),
-                                    fontSize: 12,
-                                    fontFamily: 'Pretendard',
-                                    fontWeight: FontWeight.w500,
-                                  ),
+                          Row(
+                            children: [
+                              Text(
+                                '더보기',
+                                style: TextStyle(
+                                  color: Color(0xFF767676),
+                                  fontSize: 12,
+                                  fontFamily: 'Pretendard',
+                                  fontWeight: FontWeight.w500,
                                 ),
-                                Image.asset(
-                                  'assets/search/Forward.png',
-                                  width: 16,
-                                  height: 16,
-                                )
-                              ],
-                            ),
+                              ),
+                              Image.asset(
+                                'assets/search/Forward.png',
+                                width: 16,
+                                height: 16,
+                              )
+                            ],
                           ),
                         ],
                       ),
@@ -328,7 +319,7 @@ class _Search_textState extends State<Search_text> {
                 ),
               ),
             ),
-            Positioned(bottom: 10, left: 21, child: FloatingWidget())
+            Positioned(bottom: 10, left: 21, child: FloatingWidget(false))
           ],
         ),
       ),
