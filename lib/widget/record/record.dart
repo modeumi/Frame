@@ -102,7 +102,7 @@ class _RocordPageState extends State<RocordPage> {
           SizedBox(
             height: 30,
           ),
-          FloatingWidget()
+          FloatingWidget(false)
         ]),
       ),
     );

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:frame/provider/floating_controller.dart';
 import 'package:frame/reservation/ticket.dart';
 import 'package:frame/screen/community.dart';
+import 'package:frame/screen/mainpage.dart';
 import 'package:frame/screen/mypage.dart';
 import 'package:frame/screen/reservation.dart';
 import 'package:frame/screen/search.dart';
@@ -49,15 +50,17 @@ class _FloatingWidgetState extends State<FloatingWidget> {
               GestureDetector(
                 behavior: HitTestBehavior.opaque,
                 onTap: () {
-                  bool state =
-                      Provider.of<Floating_Controller>(context, listen: false)
-                          .page_state;
-                  Provider.of<Floating_Controller>(context, listen: false)
-                      .Floating_State(!state);
-                  Provider.of<Floating_Controller>(context, listen: false)
-                      .Set_Page('');
-                  sub_slot.forEach((key, value) {
-                    sub_slot[key] = false;
+                  if (!widget.mainpage) {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => MainPage(),
+                        ));
+                  }
+                  setState(() {
+                    sub_slot.forEach((key, value) {
+                      sub_slot[key] = false;
+                    });
                   });
                 },
                 child: Container(
@@ -85,52 +88,53 @@ class _FloatingWidgetState extends State<FloatingWidget> {
                   color: Color(0xff000000),
                 ),
                 child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      for (String text in sub_slot.keys)
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.pop(context);
-                            if (text == 'Search') {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => Search(),
-                                  ));
-                            }
-                            if (text == 'Chat') {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => Community(),
-                                  ));
-                            }
-                            if (text == 'User') {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => Mypage(),
-                                  ));
-                            }
-                            Button_Active(text);
-                          },
-                          child: Container(
-                            width: 44,
-                            height: 44,
-                            decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: Color(
-                                    sub_slot[text]! ? 0xffffffff : 0xff000000),
-                                image: DecorationImage(
-                                  image: AssetImage(sub_slot[text]!
-                                      ? 'assets/main/${text}-1.png'
-                                      : 'assets/main/${text}.png'),
-                                )),
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    for (String text in sub_slot.keys)
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.pop(context);
+                          if (text == 'Search') {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => Search(),
+                                ));
+                          }
+                          if (text == 'Chat') {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => Community(),
+                                ));
+                          }
+                          if (text == 'User') {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => Mypage(),
+                                ));
+                          }
+                          Button_Active(text);
+                        },
+                        child: Container(
+                          width: 44,
+                          height: 44,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Color(
+                                sub_slot[text]! ? 0xffffffff : 0xff000000),
+                            image: DecorationImage(
+                              image: AssetImage(sub_slot[text]!
+                                  ? 'assets/main/$text-1.png'
+                                  : 'assets/main/$text.png'),
+                            ),
                           ),
-                        )
-                    ]),
-              )
-
+                        ),
+                      )
+                  ],
+                ),
+              ),
             ],
           ),
         );

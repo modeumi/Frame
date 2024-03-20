@@ -89,7 +89,7 @@ class __MainPageState extends State<MainPage> with TickerProviderStateMixin {
                 )),
               ],
             ),
-            Positioned(bottom: 20, left: 21, child: FloatingWidget())
+            Positioned(bottom: 20, left: 21, child: FloatingWidget(true))
           ],
         ),
       ),

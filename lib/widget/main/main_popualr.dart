@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:frame/screen/research_post.dart';
 
 class Popularity extends StatefulWidget {
   const Popularity({super.key});
@@ -114,6 +115,13 @@ class _PopularityState extends State<Popularity> {
                   itemBuilder: (context, index) {
                     return GestureDetector(
                         onTap: () {
+                          if (_showImage) {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => ResearchPost(),
+                                ));
+                          }
                           setState(() {
                             _showImage = !_showImage;
                           });
