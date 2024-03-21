@@ -68,9 +68,7 @@ class _PopularityState extends State<Popularity> {
                     fontWeight: FontWeight.w500,
                   ),
                 ),
-                SizedBox(
-                  width: 180,
-                ),
+                Spacer(),
                 Container(
                     width: 64,
                     height: 26,
@@ -165,6 +163,11 @@ class _PopularityState extends State<Popularity> {
                   DotsIndicator(
                     dotsCount: imageAsets.length,
                     position: _currentPage,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    decorator: DotsDecorator(
+                        size: Size(6, 6),
+                        activeSize: Size(6, 6),
+                        spacing: EdgeInsets.only(right: 6)),
                   )
                 ],
               ),
@@ -255,9 +258,7 @@ class _PopularityState extends State<Popularity> {
                     fontWeight: FontWeight.w500,
                   ),
                 ),
-                SizedBox(
-                  width: 180,
-                ),
+                Spacer(),
                 Container(
                     width: 64,
                     height: 26,

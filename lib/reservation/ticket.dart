@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'package:frame/reservation/ticketview.dart';
 
@@ -22,7 +23,6 @@ class _TicketPageState extends State<TicketPage> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
         title: Text('예약',
             style: TextStyle(
               color: Colors.black,

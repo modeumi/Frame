@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:frame/reservation/before_view.dart';
 import 'package:frame/reservation/select_time.dart';
 import 'package:frame/reservation/view_completed.dart';
@@ -24,6 +25,11 @@ class _ReservationPageState extends State<ReservationPage>
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      statusBarColor: Colors.blue, // 배경색을 파란색으로 설정
+      statusBarIconBrightness:
+          Brightness.light, // 아이콘의 밝기를 밝게 설정 (어두운 배경 위에 밝은 아이콘)
+    ));
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,

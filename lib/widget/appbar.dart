@@ -14,6 +14,7 @@ class _AppbarBuildState extends State<AppbarBuild> {
     return Container(
       width: 375,
       height: 40,
+      decoration: BoxDecoration(color: Colors.white),
       padding: EdgeInsets.symmetric(vertical: 8),
       child: widget.title == 'main'
           ? Row(

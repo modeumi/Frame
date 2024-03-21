@@ -62,9 +62,7 @@ class _MainFildState extends State<MainFild> {
                   fontWeight: FontWeight.w500,
                 ),
               ),
-              SizedBox(
-                width: 180,
-              ),
+              Spacer(),
               Container(
                   width: 64,
                   height: 26,
@@ -151,6 +149,11 @@ class _MainFildState extends State<MainFild> {
                 DotsIndicator(
                   dotsCount: imageAsets.length,
                   position: _currentPage,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  decorator: DotsDecorator(
+                      size: Size(6, 6),
+                      activeSize: Size(6, 6),
+                      spacing: EdgeInsets.only(right: 6)),
                 )
               ],
             ),

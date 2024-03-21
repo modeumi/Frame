@@ -423,6 +423,7 @@ class _BeforeViewState extends State<BeforeView> {
                     width: 10,
                   ),
                   Container(
+                    width: 165,
                     height: 80,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -431,11 +432,11 @@ class _BeforeViewState extends State<BeforeView> {
                         Text(
                           'MSCHF: NOTHING IS SACRED',
                           style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 12,
-                            fontFamily: 'Pretendard',
-                            fontWeight: FontWeight.w500,
-                          ),
+                              color: Colors.black,
+                              fontSize: 12,
+                              fontFamily: 'Pretendard',
+                              fontWeight: FontWeight.w500,
+                              overflow: TextOverflow.ellipsis),
                         ),
                         Text(
                           '성인 1매',
@@ -618,7 +619,7 @@ class _BeforeViewState extends State<BeforeView> {
                     width: 10,
                   ),
                   Container(
-                    width: 170,
+                    width: 165,
                     height: 80,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,

@@ -153,7 +153,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
         ],
       ),
       body: Container(
-        width: 390,
+        width: 375,
         color: Colors.white,
         child: Column(children: [
           SizedBox(

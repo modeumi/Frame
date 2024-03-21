@@ -366,11 +366,11 @@ class _TicketViewState extends State<TicketView> {
                         Text(
                           'MSCHF: NOTHING IS SACRED',
                           style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 12,
-                            fontFamily: 'Pretendard',
-                            fontWeight: FontWeight.w500,
-                          ),
+                              color: Colors.black,
+                              fontSize: 12,
+                              fontFamily: 'Pretendard',
+                              fontWeight: FontWeight.w500,
+                              overflow: TextOverflow.ellipsis),
                         ),
                         Text(
                           '성인 1매',
