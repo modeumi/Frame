@@ -31,7 +31,9 @@ class _FloatingWidgetState extends State<FloatingWidget> {
     Provider.of<Floating_Controller>(context, listen: false).Set_Page(text);
     String page_active =
         Provider.of<Floating_Controller>(context, listen: false).page_name;
-    sub_slot[page_active] = true;
+    if (page_active != 'main') {
+      sub_slot[page_active] = true;
+    }
   }
 
   @override
@@ -39,7 +41,7 @@ class _FloatingWidgetState extends State<FloatingWidget> {
     return Consumer<Floating_Controller>(
       builder: (context, floating_controller, _) {
         String page_active = context.read<Floating_Controller>().page_name;
-        if (page_active != '') {
+        if (page_active != '' && page_active != 'main') {
           sub_slot[page_active] = true;
         }
         return Container(
@@ -50,18 +52,20 @@ class _FloatingWidgetState extends State<FloatingWidget> {
               GestureDetector(
                 behavior: HitTestBehavior.opaque,
                 onTap: () {
+                  setState(() {
+                    sub_slot.forEach((key, value) {
+                      sub_slot[key] = false;
+                    });
+                  });
                   if (!widget.mainpage) {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) => MainPage(),
                         ));
+                    Button_Active('main');
                   }
-                  setState(() {
-                    sub_slot.forEach((key, value) {
-                      sub_slot[key] = false;
-                    });
-                  });
+                  print(sub_slot);
                 },
                 child: Container(
                   width: 52,
