@@ -32,6 +32,7 @@ class _ReservationPageState extends State<ReservationPage>
     ));
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.white,
         automaticallyImplyLeading: false,
         title: AppbarBuild('예약'),
       ),

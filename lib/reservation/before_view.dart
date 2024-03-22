@@ -22,8 +22,8 @@ class _BeforeViewState extends State<BeforeView> {
           ),
         ),
         Positioned(
-          bottom: 10,
-          left: 25,
+          bottom: 8,
+          left: 15,
           child: Container(
             width: 330,
             child: Row(
