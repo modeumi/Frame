@@ -30,28 +30,6 @@ class __MainPageState extends State<MainPage> with TickerProviderStateMixin {
         backgroundColor: Colors.white,
         scrolledUnderElevation: 0,
         title: AppbarBuild('main'),
-        // actions: [
-        //   SvgPicture.asset(
-        //     'assets/mypage/Frame 1437257016.svg',
-        //     width: 20,
-        //     height: 24,
-        //   ),
-        //   SizedBox(
-        //     width: 160,
-        //   ),
-        //   Image.asset('assets/main/Search-2.png'),
-        //   SizedBox(
-        //     width: 16,
-        //   ),
-        //   Image.asset('assets/main/Notification.png'),
-        //   SizedBox(
-        //     width: 16,
-        //   ),
-        //   Image.asset('assets/main/Comments.png'),
-        //   SizedBox(
-        //     width: 16,
-        //   ),
-        // ],
       ),
       body: Container(
         color: Colors.white,
