@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:frame/screen/research_post.dart';
 import 'package:frame/screen/test_page.dart';
@@ -143,8 +144,8 @@ class _PopularityState extends State<Popularity> {
                               ),
                             ),
                             Positioned(
-                              left: 48,
-                              bottom: 175,
+                              left: 38,
+                              bottom: 168,
                               child: Visibility(
                                   visible: _showImage && index == 0,
                                   child: Image.asset(
@@ -175,6 +176,8 @@ class _PopularityState extends State<Popularity> {
                     position: _currentPage,
                     mainAxisAlignment: MainAxisAlignment.center,
                     decorator: DotsDecorator(
+                        color: Colors.grey,
+                        activeColor: Colors.black,
                         size: Size(6, 6),
                         activeSize: Size(6, 6),
                         spacing: EdgeInsets.only(right: 6)),
@@ -305,6 +308,7 @@ class _PopularityState extends State<Popularity> {
               ],
             ),
             Stack(
+              clipBehavior: Clip.none,
               children: [
                 SizedBox(
                   width: double.infinity,
@@ -343,15 +347,15 @@ class _PopularityState extends State<Popularity> {
                   final mediaQuery = MediaQuery.of(context);
                   double? left;
                   if (index == 0) {
-                    left = 10;
+                    left = 9;
                   } else if (index == 1) {
-                    left = 90;
+                    left = 87;
                   } else if (index == 2) {
-                    left = mediaQuery.size.width - 233;
+                    left = mediaQuery.size.width - 221;
                   } else if (index == 3) {
-                    left = mediaQuery.size.width - 153;
+                    left = mediaQuery.size.width - 143;
                   } else if (index == 4) {
-                    left = mediaQuery.size.width - 83;
+                    left = mediaQuery.size.width - 75;
                   }
                   final containerWidth = index == 4
                       ? 102
@@ -436,6 +440,13 @@ class _PopularityState extends State<Popularity> {
                   DotsIndicator(
                     dotsCount: imageAsets.length,
                     position: _currentPage,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    decorator: DotsDecorator(
+                        color: Colors.grey,
+                        activeColor: Colors.black,
+                        size: Size(6, 6),
+                        activeSize: Size(6, 6),
+                        spacing: EdgeInsets.only(right: 6)),
                   )
                 ],
               ),
@@ -504,7 +515,7 @@ class _PopularityState extends State<Popularity> {
               ),
             ),
             SizedBox(
-              height: 60,
+              height: 80,
             )
           ],
         ),
