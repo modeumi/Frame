@@ -72,7 +72,7 @@ class _ReservationPageState extends State<ReservationPage>
             )),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: FloatingWidget(false),
+              child: FloatingWidget(''),
             )
           ],
         ),

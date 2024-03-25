@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:frame/provider/floating_controller.dart';
-import 'package:frame/reservation/ticket.dart';
 import 'package:frame/screen/community.dart';
 import 'package:frame/screen/mainpage.dart';
 import 'package:frame/screen/mypage.dart';
+import 'package:frame/screen/record.dart';
 import 'package:frame/screen/reservation.dart';
 import 'package:frame/screen/search.dart';
 import 'package:provider/provider.dart';
 
 class FloatingWidget extends StatefulWidget {
-  final bool mainpage;
-  const FloatingWidget(this.mainpage, {super.key});
+  final String pagename;
+  const FloatingWidget(this.pagename, {super.key});
 
   @override
   State<FloatingWidget> createState() => _FloatingWidgetState();
@@ -23,15 +23,25 @@ class _FloatingWidgetState extends State<FloatingWidget> {
     'Ticket': false,
     'User': false,
   };
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    print(Provider.of<Floating_Controller>(context, listen: false).page_name);
+  }
 
   void Button_Active(String text) {
+    print('현재 페이지');
+    print(Provider.of<Floating_Controller>(context, listen: false).page_name);
     sub_slot.forEach((key, value) {
       sub_slot[key] = false;
     });
     Provider.of<Floating_Controller>(context, listen: false).Set_Page(text);
     String page_active =
         Provider.of<Floating_Controller>(context, listen: false).page_name;
-    if (page_active != 'main') {
+    print('바뀔 페이지');
+    print(page_active);
+    if (page_active != 'main' && page_active != 'record') {
       sub_slot[page_active] = true;
     }
   }
@@ -41,7 +51,9 @@ class _FloatingWidgetState extends State<FloatingWidget> {
     return Consumer<Floating_Controller>(
       builder: (context, floating_controller, _) {
         String page_active = context.read<Floating_Controller>().page_name;
-        if (page_active != '' && page_active != 'main') {
+        if (page_active != '' &&
+            page_active != 'main' &&
+            page_active != 'record') {
           sub_slot[page_active] = true;
         }
         return Container(
@@ -57,15 +69,30 @@ class _FloatingWidgetState extends State<FloatingWidget> {
                       sub_slot[key] = false;
                     });
                   });
-                  if (!widget.mainpage) {
+                  Button_Active(widget.pagename);
+                  String route_page =
+                      context.read<Floating_Controller>().page_name;
+                  if (route_page != 'main') {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) => MainPage(),
                         ));
-                    Button_Active('main');
+                  } else {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => RocordPage(),
+                        ));
                   }
-                  print(sub_slot);
+                  // if (widget.pagename == 'record') {
+                  //   Navigator.push(
+                  //       context,
+                  //       MaterialPageRoute(
+                  //         builder: (context) => RocordPage(),
+                  //       ));
+                  //   Button_Active(widget.pagename);
+                  // }
                 },
                 child: Container(
                   width: 52,
@@ -75,9 +102,12 @@ class _FloatingWidgetState extends State<FloatingWidget> {
                     color: Color(0xff000000),
                   ),
                   child: Center(
-                      child: Image.asset(widget.mainpage
-                          ? 'assets/main/Plus Math.png'
-                          : 'assets/main/Home.png')),
+                    child: Image.asset(widget.pagename == 'main'
+                        ? 'assets/main/Plus Math.png'
+                        : widget.pagename == 'record'
+                            ? 'assets/search/Left.png'
+                            : 'assets/main/Home.png'),
+                  ),
                 ),
               ),
               SizedBox(
@@ -139,7 +169,7 @@ class _FloatingWidgetState extends State<FloatingWidget> {
                             color: Color(
                                 sub_slot[text]! ? 0xffffffff : 0xff000000),
                             image: DecorationImage(
-                              image: AssetImage(sub_slot[text]!
+                              image: AssetImage(sub_slot[text] ?? false
                                   ? 'assets/main/$text-1.png'
                                   : 'assets/main/$text.png'),
                             ),

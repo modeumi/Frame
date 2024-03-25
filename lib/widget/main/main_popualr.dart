@@ -4,6 +4,7 @@ import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:frame/screen/research_post.dart';
+import 'package:frame/screen/test_page.dart';
 
 class Popularity extends StatefulWidget {
   const Popularity({super.key});
@@ -69,36 +70,45 @@ class _PopularityState extends State<Popularity> {
                   ),
                 ),
                 Spacer(),
-                Container(
-                    width: 64,
-                    height: 26,
-                    decoration: BoxDecoration(
-                        border: Border.all(color: Color(0xFFDDDDDD)),
-                        borderRadius: BorderRadius.circular(7)),
-                    child: Center(
-                      child: Text.rich(
-                        TextSpan(
-                          text: '+ ',
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 12,
-                            fontFamily: 'Pretendard',
-                            fontWeight: FontWeight.w500,
-                          ),
-                          children: <TextSpan>[
-                            TextSpan(
-                              text: '팔로우',
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 12,
-                                fontFamily: 'Pretendard',
-                                fontWeight: FontWeight.w500,
-                              ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Test_Page(),
+                        ));
+                  },
+                  child: Container(
+                      width: 64,
+                      height: 26,
+                      decoration: BoxDecoration(
+                          border: Border.all(color: Color(0xFFDDDDDD)),
+                          borderRadius: BorderRadius.circular(7)),
+                      child: Center(
+                        child: Text.rich(
+                          TextSpan(
+                            text: '+ ',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 12,
+                              fontFamily: 'Pretendard',
+                              fontWeight: FontWeight.w500,
                             ),
-                          ],
+                            children: <TextSpan>[
+                              TextSpan(
+                                text: '팔로우',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 12,
+                                  fontFamily: 'Pretendard',
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                    )),
+                      )),
+                ),
                 Image.asset(
                   'assets/mypage/Menu Vertical.png',
                 )

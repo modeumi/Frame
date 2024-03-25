@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class Floating_Controller with ChangeNotifier {
-  String page_name = '';
+  String page_name = 'main';
   bool page_state = true;
 
   void Set_Page(String name) {

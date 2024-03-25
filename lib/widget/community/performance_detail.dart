@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:frame/screen/revervation_date.dart';
 import 'package:frame/widget/community_detail_appbar.dart';
 import 'package:frame/widget/floatingbutton.dart';
 
@@ -40,21 +41,30 @@ class _Performance_DetailState extends State<Performance_Detail> {
                   topLeft: Radius.circular(20), topRight: Radius.circular(20))),
           child: Column(
             children: [
-              Container(
-                width: 343,
-                height: 52,
-                decoration: BoxDecoration(
-                  color: Color(0xff000000),
-                  borderRadius: BorderRadius.circular(30),
-                ),
-                child: Center(
-                  child: Text(
-                    '예매하기',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 16,
-                      fontFamily: 'Pretendard',
-                      fontWeight: FontWeight.w600,
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => RevervationDate(),
+                      ));
+                },
+                child: Container(
+                  width: 343,
+                  height: 52,
+                  decoration: BoxDecoration(
+                    color: Color(0xff000000),
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                  child: Center(
+                    child: Text(
+                      '예매하기',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 16,
+                        fontFamily: 'Pretendard',
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
                   ),
                 ),
@@ -62,7 +72,7 @@ class _Performance_DetailState extends State<Performance_Detail> {
               SizedBox(
                 height: 32,
               ),
-              FloatingWidget(false)
+              FloatingWidget('')
             ],
           ),
         ),

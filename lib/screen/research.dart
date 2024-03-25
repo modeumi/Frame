@@ -42,7 +42,7 @@ class _ReSearchState extends State<ReSearch> {
               TabBarView(
                 children: [Recommend(), Following(), Interest()],
               ),
-              Positioned(bottom: 10, left: 21, child: FloatingWidget(false)),
+              Positioned(bottom: 10, left: 21, child: FloatingWidget('')),
             ],
           ),
         ),

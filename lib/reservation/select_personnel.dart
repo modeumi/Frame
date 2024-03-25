@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 class SelectPersonnel extends StatefulWidget {
@@ -76,269 +78,270 @@ class _SelectPersonnelState extends State<SelectPersonnel> {
         SizedBox(
           height: 8,
         ),
-        Center(
-          child: Container(
-            width: 343,
-            height: 166,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                border: Border.all(color: Color(0xFFECECEC))),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-              child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                      width: 300,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            '성인',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 14,
-                              fontFamily: 'Pretendard',
-                              fontWeight: FontWeight.w600,
-                            ),
+        Container(
+          width: 343,
+          height: 166,
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              border: Border.all(color: Color(0xFFECECEC))),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  width: 300,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        '성인',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 14,
+                          fontFamily: 'Pretendard',
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      SizedBox(
+                        width: 88,
+                      ),
+                      Container(
+                        width: 50,
+                        child: Text(
+                          '12,000원',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 12,
+                            fontFamily: 'Pretendard',
+                            fontWeight: FontWeight.w500,
                           ),
-                          SizedBox(
-                            width: 88,
-                          ),
-                          Container(
-                            width: 50,
+                        ),
+                      ),
+                      SizedBox(
+                        width: 50,
+                      ),
+                      InkWell(
+                          onTap: () {
+                            setState(() {
+                              decrementAdultCount();
+                            });
+                          },
+                          child: Image.asset('assets/reservation/-.png')),
+                      Container(
+                        width: 36,
+                        height: 20,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            border: Border.all(color: Color(0xFFECECEC))),
+                        child: Center(
                             child: Text(
-                              '12,000원',
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 12,
-                                fontFamily: 'Pretendard',
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
+                          '$adultcount',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 14,
+                            fontFamily: 'Pretendard',
+                            fontWeight: FontWeight.w600,
                           ),
-                          SizedBox(
-                            width: 50,
-                          ),
-                          InkWell(
-                              onTap: () {
-                                setState(() {
-                                  decrementAdultCount();
-                                });
-                              },
-                              child: Image.asset('assets/reservation/-.png')),
-                          Container(
-                            width: 36,
-                            height: 20,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
-                                border: Border.all(color: Color(0xFFECECEC))),
-                            child: Center(
-                                child: Text(
-                              '$adultcount',
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 14,
-                                fontFamily: 'Pretendard',
-                                fontWeight: FontWeight.w600,
-                              ),
-                            )),
-                          ),
-                          InkWell(
-                              onTap: () {
-                                setState(() {
-                                  incrementAdultCount();
-                                });
-                              },
-                              child: Image.asset('assets/reservation/+.png')),
-                        ],
+                        )),
                       ),
-                    ),
-                    Container(
-                      width: 300,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            '청소년',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 14,
-                              fontFamily: 'Pretendard',
-                              fontWeight: FontWeight.w600,
-                            ),
+                      InkWell(
+                          onTap: () {
+                            setState(() {
+                              incrementAdultCount();
+                            });
+                          },
+                          child: Image.asset('assets/reservation/+.png')),
+                    ],
+                  ),
+                ),
+                Container(
+                  width: 300,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        '청소년',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 14,
+                          fontFamily: 'Pretendard',
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      SizedBox(
+                        width: 80,
+                      ),
+                      Container(
+                        width: 50,
+                        child: Text(
+                          '8,000원',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 12,
+                            fontFamily: 'Pretendard',
+                            fontWeight: FontWeight.w500,
                           ),
-                          SizedBox(
-                            width: 80,
-                          ),
-                          Container(
-                            width: 50,
+                        ),
+                      ),
+                      SizedBox(
+                        width: 50,
+                      ),
+                      InkWell(
+                          onTap: () {
+                            setState(() {
+                              decrementYouthCount();
+                            });
+                          },
+                          child: Image.asset('assets/reservation/-.png')),
+                      Container(
+                        width: 36,
+                        height: 20,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            border: Border.all(color: Color(0xFFECECEC))),
+                        child: Center(
                             child: Text(
-                              '8,000원',
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 12,
-                                fontFamily: 'Pretendard',
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
+                          '$youthcount',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 14,
+                            fontFamily: 'Pretendard',
+                            fontWeight: FontWeight.w600,
                           ),
-                          SizedBox(
-                            width: 50,
-                          ),
-                          InkWell(
-                              onTap: () {
-                                setState(() {
-                                  decrementYouthCount();
-                                });
-                              },
-                              child: Image.asset('assets/reservation/-.png')),
-                          Container(
-                            width: 36,
-                            height: 20,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
-                                border: Border.all(color: Color(0xFFECECEC))),
-                            child: Center(
-                                child: Text(
-                              '$youthcount',
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 14,
-                                fontFamily: 'Pretendard',
-                                fontWeight: FontWeight.w600,
-                              ),
-                            )),
-                          ),
-                          InkWell(
-                              onTap: () {
-                                setState(() {
-                                  incrementYouthCount();
-                                });
-                              },
-                              child: Image.asset('assets/reservation/+.png')),
-                        ],
+                        )),
                       ),
-                    ),
-                    Container(
-                      width: 300,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            '유아 및 어린이',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 14,
-                              fontFamily: 'Pretendard',
-                              fontWeight: FontWeight.w600,
-                            ),
+                      InkWell(
+                          onTap: () {
+                            setState(() {
+                              incrementYouthCount();
+                            });
+                          },
+                          child: Image.asset('assets/reservation/+.png')),
+                    ],
+                  ),
+                ),
+                Container(
+                  width: 300,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        '유아 및 어린이',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 14,
+                          fontFamily: 'Pretendard',
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      SizedBox(
+                        width: 35,
+                      ),
+                      Container(
+                        width: 50,
+                        child: Text(
+                          '6,000원',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 12,
+                            fontFamily: 'Pretendard',
+                            fontWeight: FontWeight.w500,
                           ),
-                          SizedBox(
-                            width: 35,
-                          ),
-                          Container(
-                            width: 50,
+                        ),
+                      ),
+                      SizedBox(
+                        width: 50,
+                      ),
+                      InkWell(
+                          onTap: () {
+                            setState(() {
+                              decrementChildCount();
+                            });
+                          },
+                          child: Image.asset('assets/reservation/-.png')),
+                      Container(
+                        width: 36,
+                        height: 20,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            border: Border.all(color: Color(0xFFECECEC))),
+                        child: Center(
                             child: Text(
-                              '6,000원',
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 12,
-                                fontFamily: 'Pretendard',
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
+                          '$childcount',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 14,
+                            fontFamily: 'Pretendard',
+                            fontWeight: FontWeight.w600,
                           ),
-                          SizedBox(
-                            width: 50,
-                          ),
-                          InkWell(
-                              onTap: () {
-                                setState(() {
-                                  decrementChildCount();
-                                });
-                              },
-                              child: Image.asset('assets/reservation/-.png')),
-                          Container(
-                            width: 36,
-                            height: 20,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
-                                border: Border.all(color: Color(0xFFECECEC))),
-                            child: Center(
-                                child: Text(
-                              '$childcount',
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 14,
-                                fontFamily: 'Pretendard',
-                                fontWeight: FontWeight.w600,
-                              ),
-                            )),
-                          ),
-                          InkWell(
-                              onTap: () {
-                                setState(() {
-                                  incrementChildCount();
-                                });
-                              },
-                              child: Image.asset('assets/reservation/+.png')),
-                        ],
+                        )),
                       ),
-                    ),
-                    Container(
-                      width: 343,
-                      height: 0.5,
-                      decoration: BoxDecoration(
-                          border: Border.all(color: Color(0xFFECECEC))),
-                    ),
-                    Container(
-                      width: 295,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            '총원',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 14,
-                              fontFamily: 'Pretendard',
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                          Text(
-                            (adultcount > 0 ? '성인${adultcount}명, ' : '') +
-                                (youthcount > 0 ? '청소년${youthcount}명, ' : '') +
-                                (childcount > 0
-                                    ? '유아 및 어린이${childcount}명, '
-                                    : ''),
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 14,
-                              fontFamily: 'Pretendard',
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                        ],
+                      InkWell(
+                          onTap: () {
+                            setState(() {
+                              incrementChildCount();
+                            });
+                          },
+                          child: Image.asset('assets/reservation/+.png')),
+                    ],
+                  ),
+                ),
+                Container(
+                  width: 343,
+                  height: 0.5,
+                  decoration: BoxDecoration(
+                      border: Border.all(color: Color(0xFFECECEC))),
+                ),
+                Container(
+                  width: 295,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        '총원',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 14,
+                          fontFamily: 'Pretendard',
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
-                    ),
-                  ]),
+                      Text(
+                        (adultcount > 0 ? '성인${adultcount}명, ' : '') +
+                            (youthcount > 0 ? '청소년${youthcount}명, ' : '') +
+                            (childcount > 0 ? '유아 및 어린이${childcount}명, ' : ''),
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 14,
+                          fontFamily: 'Pretendard',
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
           ),
         ),
         Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.only(top: 8, bottom: 8, right: 8),
           child: Row(
             children: [
               Checkbox(
-                  value: _isCkecked,
-                  activeColor: Colors.black,
-                  onChanged: (value) {
-                    setState(() {
+                materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                value: _isCkecked,
+                activeColor: Colors.black,
+                onChanged: (value) {
+                  setState(
+                    () {
                       _isCkecked = value!;
-                    });
-                  }),
+                    },
+                  );
+                },
+              ),
               Text(
                 '관람시 유의사항 동의',
                 style: TextStyle(
@@ -348,9 +351,7 @@ class _SelectPersonnelState extends State<SelectPersonnel> {
                   fontWeight: FontWeight.w600,
                 ),
               ),
-              SizedBox(
-                width: 105,
-              ),
+              Spacer(),
               Text(
                 '전문 보기',
                 style: TextStyle(

@@ -574,7 +574,7 @@ class _Artist_DetailState extends State<Artist_Detail> {
             Positioned(
               bottom: 10,
               left: 21,
-              child: FloatingWidget(false),
+              child: FloatingWidget(''),
             )
           ],
         ),

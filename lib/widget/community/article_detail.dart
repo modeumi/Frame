@@ -377,7 +377,7 @@ class _Article_DetailState extends State<Article_Detail> {
           Positioned(
             bottom: 10,
             left: 21,
-            child: FloatingWidget(false),
+            child: FloatingWidget(''),
           )
         ]),
       ),

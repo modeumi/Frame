@@ -24,7 +24,7 @@ class _All_HistoryState extends State<All_History> {
             automaticallyImplyLeading: false,
             title: MyPage_Appbar('관람 기록'),
           ),
-          bottomSheet: FloatingWidget(false),
+          bottomSheet: FloatingWidget(''),
           body: Container(
             width: 375,
             child: SingleChildScrollView(

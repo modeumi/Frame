@@ -44,7 +44,7 @@ class _CommunityState extends State<Community> {
                   Commu_Class(),
                 ],
               ),
-              Positioned(bottom: 10, left: 21, child: FloatingWidget(false)),
+              Positioned(bottom: 10, left: 21, child: FloatingWidget('')),
             ],
           ),
         ),

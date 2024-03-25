@@ -69,7 +69,7 @@ class _Class_DetailState extends State<Class_Detail> {
               SizedBox(
                 height: 32,
               ),
-              FloatingWidget(false)
+              FloatingWidget('')
             ],
           ),
         ),

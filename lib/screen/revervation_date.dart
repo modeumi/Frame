@@ -13,8 +13,6 @@ class RevervationDate extends StatefulWidget {
 }
 
 class _RevervationDateState extends State<RevervationDate> {
-  
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,7 +43,7 @@ class _RevervationDateState extends State<RevervationDate> {
           width: 390,
           color: Colors.white,
           child: Padding(
-            padding: const EdgeInsets.all(16.0),
+            padding: const EdgeInsets.only(top: 16.0, left: 16.0, bottom: 16.0),
             child:
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               ReservationTitle(),
@@ -55,26 +53,24 @@ class _RevervationDateState extends State<RevervationDate> {
               SizedBox(
                 height: 10,
               ),
-              Center(
-                child: Container(
-                  width: 343,
-                  height: 52,
-                  decoration: ShapeDecoration(
-                    color: Colors.black,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30),
-                    ),
+              Container(
+                width: 343,
+                height: 52,
+                decoration: ShapeDecoration(
+                  color: Colors.black,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30),
                   ),
-                  child: Center(
-                    child: Text(
-                      '12,000원 결제하기',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                        fontFamily: 'Pretendard',
-                        fontWeight: FontWeight.w600,
-                      ),
+                ),
+                child: Center(
+                  child: Text(
+                    '12,000원 결제하기',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 16,
+                      fontFamily: 'Pretendard',
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
                 ),

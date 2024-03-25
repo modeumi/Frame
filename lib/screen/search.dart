@@ -346,7 +346,7 @@ class _SearchState extends State<Search> {
                   ),
                 ),
               ),
-              Positioned(bottom: 10, left: 21, child: FloatingWidget(false)),
+              Positioned(bottom: 10, left: 21, child: FloatingWidget('')),
             ]),
           )),
     );

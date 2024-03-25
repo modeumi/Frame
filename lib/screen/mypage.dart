@@ -41,7 +41,7 @@ class _MypageState extends State<Mypage> {
             Positioned(
               bottom: 10,
               left: 21,
-              child: FloatingWidget(false),
+              child: FloatingWidget(''),
             )
           ])),
     );

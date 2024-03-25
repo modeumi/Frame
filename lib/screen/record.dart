@@ -15,15 +15,17 @@ class _RocordPageState extends State<RocordPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+          backgroundColor: Colors.white,
+          centerTitle: true,
           title: Text(
-        '기록작성',
-        style: TextStyle(
-          color: Colors.black,
-          fontSize: 20,
-          fontFamily: 'Pretendard',
-          fontWeight: FontWeight.w600,
-        ),
-      )),
+            '기록작성',
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 20,
+              fontFamily: 'Pretendard',
+              fontWeight: FontWeight.w600,
+            ),
+          )),
       body: Container(
         color: Colors.white,
         child: Column(
@@ -102,7 +104,7 @@ class _RocordPageState extends State<RocordPage> {
           SizedBox(
             height: 30,
           ),
-          FloatingWidget(false)
+          FloatingWidget('record')
         ]),
       ),
     );

@@ -59,7 +59,7 @@ class _ResearchPostState extends State<ResearchPost> {
               ],
             ),
           ),
-          Positioned(bottom: 20, left: 21, child: FloatingWidget(false)),
+          Positioned(bottom: 20, left: 21, child: FloatingWidget('')),
         ],
       ),
     );

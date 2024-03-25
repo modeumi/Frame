@@ -319,7 +319,7 @@ class _Search_textState extends State<Search_text> {
                 ),
               ),
             ),
-            Positioned(bottom: 10, left: 21, child: FloatingWidget(false))
+            Positioned(bottom: 10, left: 21, child: FloatingWidget(''))
           ],
         ),
       ),

@@ -25,7 +25,7 @@ class _SelectDateState extends State<SelectDate> {
         SizedBox(
           height: 5,
         ),
-        Center(child: Image.asset('assets/reservation/Group 1437256344.png'))
+        Image.asset('assets/reservation/Group 1437256344.png')
       ],
     );
   }
